@@ -1,6 +1,7 @@
 export {CommentPlugin} from "./CommentPlugin";
 export {DecoratorPlugin} from "./DecoratorPlugin";
 export {DeepCommentPlugin} from "./DeepCommentPlugin";
+export {ModuleAnnotationPlugin} from "./ExternalModuleNamePlugin";
 export {DynamicModulePlugin} from "./DynamicModulePlugin";
 export {GitHubPlugin} from "./GitHubPlugin";
 export {GroupPlugin} from "./GroupPlugin";
