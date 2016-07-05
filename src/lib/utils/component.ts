@@ -250,7 +250,7 @@ export abstract class ChildableComponent<O extends IComponentHost, C extends ICo
     }
 
 
-    addComponent<T extends C>(name:string, componentClass:T|IComponentClass<T>):T {
+    addComponent<T extends IComponent>(name:string, componentClass:T|IComponentClass<T>):T {
         if (!this._componentChildren) {
             this._componentChildren = {};
         }
@@ -258,11 +258,11 @@ export abstract class ChildableComponent<O extends IComponentHost, C extends ICo
         if (this._componentChildren[name]) {
             throw new Error('The component `%s` has already been added.');
         } else {
-            var component:T = typeof componentClass == "function" ? new (<IComponentClass<T>>componentClass)(this) : <T>componentClass;
+            var component:any = typeof componentClass == "function" ? (new componentClass(this) as T) : <T>componentClass;
             var event = new ComponentEvent(ComponentEvent.ADDED, this, component);
 
             this.bubble(event);
-            this._componentChildren[name] = component;
+            this._componentChildren[name] = (component as C);
 
             return component;
         }

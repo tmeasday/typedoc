@@ -470,7 +470,7 @@ export class EventDispatcher
             triggerApi(this._events, name.name, void 0, [name], (events:IEventHandler[], args:any[]) => {
                 var ev:IEventHandler, i = -1, l = events.length;
                 while (++i < l) {
-                    if (name.isPropagationStopped) return;
+                    if (name instanceof Event && name.isPropagationStopped) return;
                     ev = events[i];
                     ev.callback.apply(ev.ctx, args);
                 }

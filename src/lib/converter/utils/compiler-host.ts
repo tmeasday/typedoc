@@ -70,6 +70,10 @@ export class CompilerHost extends ConverterComponent implements ts.CompilerHost
     getCurrentDirectory():string {
         return this.currentDirectory || (this.currentDirectory = ts.sys.getCurrentDirectory());
     }
+    
+    getDirectories(path:string):string[] {
+        return ts.sys.getDirectories(path);
+    }
 
 
     /**
