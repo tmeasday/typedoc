@@ -78,7 +78,7 @@ export class ModuleAnnotationPlugin extends ConverterComponent {
     var rawComment = getRawComment(node);
     if (!rawComment) return;
     
-    if (reflection.kindOf(ReflectionKind.ExternalModule) || true) {
+    if (reflection.kindOf(ReflectionKind.ExternalModule)) {
       // Look for @module
       let match   = /@module\s+(\w+)/.exec(rawComment);
       if (match) {
