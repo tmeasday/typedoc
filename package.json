@@ -69,6 +69,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "postinstall": "npm run build",
     "test": "mocha",
     "build": "grunt build_and_test",
     "prepublish": "npm run build"
